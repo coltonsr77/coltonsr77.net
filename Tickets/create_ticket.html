@@ -67,10 +67,10 @@
 
       // ✅ Replace this with your actual webhook URL
       const webhookURL = "https://discord.com/api/webhooks/1444424123492204695/gd9nEMnztOqaOm5xEs_HA1FkqVeH9EKMtkXpwcdgrVIWGI3VhFhiUVfI_yRD8wTOK46P";
-      const serviceURL = "https://server.coltonsr77.net/tickets/tickets.py"
+      const serviceURL = "https://server.coltonsr77.net/tickets/"
 
       const embed = {
-        title: `🎟️ New Ticket: ${title}`,
+        title: `New Ticket: ${title}`,
         color: 0x5865f2, // Discord blurple
         fields: [
           { name: "Priority", value: priority, inline: true },
@@ -95,14 +95,14 @@
         });
 
         if (response.ok) {
-          alert("✅ Ticket submitted successfully!");
+          alert("Ticket submitted successfully!");
           document.getElementById("ticketForm").reset();
         } else {
-          alert("❌ Error sending ticket. Please try again.");
+          alert("Error sending ticket. Please try again.");
         }
       } catch (err) {
         console.error(err);
-        alert("⚠️ Failed to send the ticket.");
+        alert("Failed to send the ticket.");
       }
     });
   </script>
