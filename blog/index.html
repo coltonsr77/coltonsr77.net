@@ -4,10 +4,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Blog : Home</title>
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --link-color: #1a0dab;
+      --button-bg: #222;
+      --button-text: #fff;
+      --button-hover: #444;
+      --card-bg: #fff;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --link-color: #7abfff;
+      --button-bg: #333;
+      --button-text: #fff;
+      --button-hover: #555;
+      --card-bg: #1c1c1c;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    a {
+      color: var(--link-color);
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+    }
+
+    #theme-toggle:hover {
+      background: var(--button-hover);
+    }
+  </style>
 </head>
 <body>
-  <h3>My Blog : Home</h3>
-  <p><a href="odd.html">Odd</a></p>
+  <button id="theme-toggle">🌙</button>
+  <div class="container">
+    <h3>My Blog : Home</h3>
+    <p><a href="odd.html">Odd</a></p>
+  </div>
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      toggleBtn.textContent = '☀️';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        toggleBtn.textContent = '☀️';
+      } else {
+        localStorage.setItem('theme', 'light');
+        toggleBtn.textContent = '🌙';
+      }
+    });
+  </script>
   <script src="../wtv.js"></script>
 </body>
 </html>
