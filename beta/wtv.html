@@ -1,6 +1,60 @@
 <!DOCTYPE html>
-<title>Warning!</title>
-<h3> Warning! </h3>
-<p>This website does NOT work on WebTV.</p>
-<p>I am working VERY hard to get it working on WebTV.</p>
-<script src="../wtv.js"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warning!</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .container {
+      max-width: 520px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #ffcc00;
+      font-size: 2rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+
+    .note {
+      background: rgba(255,204,0,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,204,0,0.3);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>WebTV Warning</h1>
+    <p>This page is the WebTV landing notice for the beta site.</p>
+    <p>This website does <strong>not</strong> work properly on WebTV yet, but I am working hard to make it compatible.</p>
+    <div class="note">If you arrived here from WebTV, this page is intentionally simple while development continues.</div>
+  </div>
+  <script src="../wtv.js"></script>
+</body>
+</html>
