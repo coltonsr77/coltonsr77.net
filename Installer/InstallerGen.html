@@ -1,29 +1,217 @@
-<link rel="icon" type="image/x-icon" href="../favicon.ico">
-<title>Generate a Installer</title>
-<html>
-  <h3>Generate a Installer</h3>
-  <p>Version: <select id="fileSelect">
-<option value="https://server.coltonsr77.net/Installer/Installer0.1.bat">0.1</option>
-<option value="https://server.coltonsr77.net/Installer/Installer0.2.bat">0.2</option>
-<option selected value="https://server.coltonsr77.net/Installer/Installer0.3.bat">0.3</option>
-</select></p>
-<button onclick="downloadFile()">Generate</button>
-  <p>Installer was made with <a href="https://winstall.app">winstall</a>.</p>
-  <p><a href="http://coltonsr77.net">Main Website</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate an Installer</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --header-bg: #222;
+      --header-text: #fff;
+      --card-bg: #fff;
+      --footer-bg: #222;
+      --footer-text: #fff;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --header-bg: #1e1e1e;
+      --header-text: #f1f1f1;
+      --card-bg: #1c1c1c;
+      --footer-bg: #1e1e1e;
+      --footer-text: #f1f1f1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: var(--header-text);
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: 1px solid var(--header-text);
+      color: var(--header-text);
+      margin-left: 1rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #theme-toggle:hover {
+      background: var(--header-text);
+      color: var(--header-bg);
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .card label,
+    .card select,
+    .card button,
+    .card a {
+      display: block;
+    }
+
+    .card select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: var(--card-bg);
+      color: var(--text-color);
+    }
+
+    .card button {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border: none;
+      background: var(--header-bg);
+      color: var(--header-text);
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .card button:hover {
+      background: #444;
+    }
+
+    .card a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Generate an Installer</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../Download/index.html">Download</a>
+      <a href="http://webtv.coltonsr77.net/">WebTV Remix</a>
+      <a href="http://coltonsr77.net/Tickets">Tickets</a>
+      <a href="https://server.coltonsr77.net/">Server</a>
+      <a href="../beta/index.html">Beta</a>
+      <button id="theme-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>Generate a Installer</h2>
+      <label for="fileSelect">Version:</label>
+      <select id="fileSelect">
+        <option value="https://server.coltonsr77.net/Installer/Installer0.1.bat">0.1</option>
+        <option value="https://server.coltonsr77.net/Installer/Installer0.2.bat">0.2</option>
+        <option selected value="https://server.coltonsr77.net/Installer/Installer0.3.bat">0.3</option>
+      </select>
+      <button onclick="downloadFile()">Generate</button>
+    </div>
+
+    <div class="card">
+      <p>Installer was made with <a href="https://winstall.app">winstall</a>.</p>
+      <p><a href="http://coltonsr77.net">Back to Main Website</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 - coltonsr77</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      toggleBtn.textContent = "☀️";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+      }
+    });
+
+    function downloadFile() {
+      const select = document.getElementById("fileSelect");
+      const fileURL = select.value;
+
+      const link = document.createElement("a");
+      link.href = fileURL;
+      link.download = fileURL.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+  <script src="../wtv.js"></script>
+</body>
 </html>
-
-<script>
-function downloadFile() {
-  const select = document.getElementById("fileSelect");
-  const fileURL = select.value;
-
-  // Create a temporary link
-  const link = document.createElement("a");
-  link.href = fileURL;
-  link.download = fileURL.split('/').pop(); // Extract filename
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-</script>
-<script src="../wtv.js"></script>

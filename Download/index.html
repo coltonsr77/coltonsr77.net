@@ -1,16 +1,175 @@
-<link rel="icon" type="image/x-icon" href="../favicon.ico">
-<title>Download Packages</title>
-<html>
-  <h3>InstallerReady Packages</h3>
-  <p> <a href="https://server.coltonsr77.net/Download/GUI-0.1.zip"> 0.1</a></p>
-  <p> <a href="https://server.coltonsr77.net/Download/GUI-0.2.zip"> 0.2</a></p>
-  <p> <a href="https://server.coltonsr77.net/Download/GUI-0.3.zip"> 0.3</a></p>
-  <p> <a href="https://server.coltonsr77.net/Download/GUI-0.4.zip"> 0.4</a></p>
-  <p> <a href="https://server.coltonsr77.net/Download/GUI-0.4.1.zip"> 0.4.1</a></p>
-  <p> <a href="https://server.coltonsr77.net/Download/GUI-0.4.2.zip"> 0.4.2</a></p>
-  <p> <a href="https://server.coltonsr77.net/Download/GUI-0.4.3.zip"> 0.4.3</a></p>
-  <h3>Installer Packages</h3>
-  <p>All installer packages are on <a href="http://coltonsr77.net/Installer/InstallerGen">here</a></p>
-  <p><a href="http://coltonsr77.net">Main Website</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Packages</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --header-bg: #222;
+      --header-text: #fff;
+      --card-bg: #fff;
+      --footer-bg: #222;
+      --footer-text: #fff;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --header-bg: #1e1e1e;
+      --header-text: #f1f1f1;
+      --card-bg: #1c1c1c;
+      --footer-bg: #1e1e1e;
+      --footer-text: #f1f1f1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: var(--header-text);
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: 1px solid var(--header-text);
+      color: var(--header-text);
+      margin-left: 1rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #theme-toggle:hover {
+      background: var(--header-text);
+      color: var(--header-bg);
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .card a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Download Packages</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../Download/index.html">Download</a>
+      <a href="http://webtv.coltonsr77.net/">WebTV Remix</a>
+      <a href="http://coltonsr77.net/Tickets">Tickets</a>
+      <a href="https://server.coltonsr77.net/">Server</a>
+      <a href="http://coltonsr77.net/beta/index.html">Beta</a>
+      <button id="theme-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>InstallerReady Packages</h2>
+      <p><a href="https://server.coltonsr77.net/Download/GUI-0.1.zip">GUI 0.1</a></p>
+      <p><a href="https://server.coltonsr77.net/Download/GUI-0.2.zip">GUI 0.2</a></p>
+      <p><a href="https://server.coltonsr77.net/Download/GUI-0.3.zip">GUI 0.3</a></p>
+      <p><a href="https://server.coltonsr77.net/Download/GUI-0.4.zip">GUI 0.4</a></p>
+      <p><a href="https://server.coltonsr77.net/Download/GUI-0.4.1.zip">GUI 0.4.1</a></p>
+      <p><a href="https://server.coltonsr77.net/Download/GUI-0.4.2.zip">GUI 0.4.2</a></p>
+      <p><a href="https://server.coltonsr77.net/Download/GUI-0.4.3.zip">GUI 0.4.3</a></p>
+    </div>
+
+    <div class="card">
+      <h2>Installer Packages</h2>
+      <p>All installer packages are on <a href="http://coltonsr77.net/Installer/InstallerGen">InstallerGen</a>.</p>
+      <p><a href="http://coltonsr77.net">Back to Main Website</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 - coltonsr77</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      toggleBtn.textContent = "☀️";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+      }
+    });
+  </script>
+  <script src="../wtv.js"></script>
+</body>
 </html>
-<script src="../wtv.js"></script>
