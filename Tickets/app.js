@@ -1,5 +1,4 @@
-/* app.js - shared client-side logic for demo ticket system
-   Place this file alongside the HTML and CSS files.
+/* app.js - shared client-side logic for some ticket system.
 */
 (function(){
   // exported helpers (attach to window)
