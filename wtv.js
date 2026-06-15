@@ -1,6 +1,6 @@
 'use strict';
 /*
-	WebTV compatibility script - See https://github.com/coltonsr77/WebTV-Script for details.
+	WebTV compatibility script - See https://github.com/coltonsr77/coltonsr77.net for details.
     OG Script at https://github.com/SKCro/WebTV-HD
 
 	Add this script to every page on your site to make it more compatible with WebTV.
