@@ -107,10 +107,10 @@ function getPatchDataType(type, invert = false) {
 function getResData(file) {
     let res_data = null;
     if (file.slice(-2, 2).toLowerCase() === "gz") {
-        const res_gz_data = wtvshared.getServiceDep("/viewergen/" + file);
+        const res_gz_data = wtvshared.getServiceDep("viewergen/" + file);
         res_data = zlib.gunzipSync(res_gz_data);
     } else {
-        res_data = wtvshared.getServiceDep("/viewergen/" + file);
+        res_data = wtvshared.getServiceDep("viewergen/" + file);
     }
     return res_data;
 }
