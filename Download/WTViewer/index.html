@@ -12,6 +12,7 @@
         .row > * { flex: 1; min-width: 200px; }
         .checkbox-row { display: flex; gap: 14px; flex-wrap: wrap; }
         .note { font-size: 0.9rem; color: #aaa; }
+        .warning { color: #ff7f7f; margin-bottom: 18px; }
     </style>
     <script>
         function getSSIDCRC(ssid) {
@@ -61,14 +62,19 @@
 
         function fixFormAction() {
             const form = document.getElementById('viewergen');
-            let actionPath = window.location.pathname;
-            if (actionPath.endsWith('index.html')) {
-                actionPath = actionPath.slice(0, -10);
+            const button = document.getElementById('download_button');
+            if (window.location.protocol === 'file:') {
+                document.getElementById('local-warning').textContent = 'Warning: this page must be served from a web server. Directly opening it from disk will not execute index.js.';
+                if (button) button.disabled = true;
+                return;
             }
-            if (!actionPath.endsWith('/')) {
-                actionPath = actionPath.substring(0, actionPath.lastIndexOf('/') + 1);
+            const path = window.location.pathname;
+            if (path.endsWith('/')) {
+                form.action = path + 'index.js';
+            } else {
+                form.action = path.replace(/\/[^\/]*$/, '/index.js');
             }
-            form.action = actionPath + 'index.js';
+            if (button) button.disabled = false;
         }
 
         function submitForm() {
@@ -85,7 +91,8 @@
 <body>
     <h1>WTViewer Download</h1>
     <p class="note">This page submits directly to <code>index.js</code> and uses the same viewer generation backend.</p>
-    <form id="viewergen" method="GET" action="index.js">
+    <p id="local-warning" class="warning"></p>
+    <form id="viewergen" method="GET" action="./index.js">
         <label for="viewer">Viewer Version</label>
         <select name="viewer" id="viewer">
             <option value="0">WebTV Viewer v1.0 Build 146 (w/ B210 ROMs)</option>
@@ -104,14 +111,14 @@
 
         <label for="logo">Startup Logo</label>
         <select name="logo" id="logo">
-            <option value="0" selected>WebTV Viewer Default</option>
+            <option value="0" selected>WebTV Viewer (Default)</option>
             <option value="1">SuperViewer 4.0</option>
             <option value="2">WebTV Viewer Hacker's Edition</option>
         </select>
 
         <label for="diskset">Disk Set</label>
         <select name="diskset" id="diskset">
-            <option value="0" selected>WebTV Viewer Default</option>
+            <option value="0" selected>WebTV Viewer (Default)</option>
         </select>
 
         <label for="build">Build Spoof</label>
@@ -134,7 +141,7 @@
         </div>
 
         <div style="margin-top: 18px;">
-            <input type="button" value="Download Viewer" onclick="submitForm()">
+            <input type="button" id="download_button" value="Download Viewer" onclick="submitForm()">
         </div>
     </form>
 </body>
